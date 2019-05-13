@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить автора</title>
+</head>
+<body>
+    id: name <br>
+    {% for st in statements %}
+        {{ st.id }}: {{ st.name }} <br>
+    {% endfor %}
+    <form action="http://127.0.0.1:8000/polls/add_statement" method="POST">
+        {% csrf_token %}
+        <label for="name">Statement name</label>
+        <input type="text" name="name" id="name" placeholder="Name"><br>
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="http://127.0.0.1:8000/polls/statement"><button>Statement</button></a>
+</body>
+</html>

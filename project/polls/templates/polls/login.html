@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить автора</title>
+</head>
+<body>
+    <form action="http://127.0.0.1:8000/polls/check_login" method="POST">
+        {% csrf_token %}
+        <label for="name">Username</label>
+        <input type="text" name="name" id="name" placeholder="Username"><br>
+        <label for="pass">Password</label>
+        <input type="text" name="pass" id="pass" placeholder="Password"><br>
+        <button type="submit">Вход</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Удалить заявление</title>
+</head>
+<body>
+    id: name <br>
+    {% for st in statements %}
+        {{ st.id }}: {{ st.name }} <br>
+    {% endfor %}
+    <form action="http://127.0.0.1:8000/polls/delete_statement" method="POST">
+        {% csrf_token %}
+        <label for="ID">Statement ID</label>
+        <input type="text" name="ID" id="ID" placeholder="ID"><br>
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="http://127.0.0.1:8000/polls/statement"><button>Statement</button></a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить автора</title>
+</head>
+<body>
+    id: name <br>
+    {% for st in statements %}
+        {{ st.id }}: {{ st.name }} <br>
+    {% endfor %}
+    <a href="http://127.0.0.1:8000/polls/add_statements"><button>Add statement</button></a>
+    <a href="http://127.0.0.1:8000/polls/delete_statements"><button>Delete statement</button></a>
+</body>
+</html>
