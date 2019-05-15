@@ -1,1 +1,5 @@
 shengeliya_venv/
+project/myvenv/
+project/venv/
+venv/pyvenv.cfg
+venv/

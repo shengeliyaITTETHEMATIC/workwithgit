@@ -5,9 +5,14 @@
     <title>Изменить автора</title>
 </head>
 <body>
-    id: name <br>
     {% for st in statements %}
-        {{ st.id }}: {{ st.name }} <br>
+        id{{ st.id }}: {{ st.name }}:
+        {% for a in autors %}
+            {% if a.statement.id == st.id %}
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;{{ a.id }}: {{ a.name }}
+            {% endif %}
+        {% endfor %}
+    <br>
     {% endfor %}
     <form action="http://127.0.0.1:8000/polls/add_statement" method="POST">
         {% csrf_token %}
