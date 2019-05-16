@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить автора</title>
+</head>
+<body>
+    {% for st in statements %}
+        id{{ st.id }}: {{ st.name }}:
+        {% for a in autors %}
+            {% if a.statement.id == st.id %}
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;{{ a.id }}: {{ a.name }}
+            {% endif %}
+        {% endfor %}
+    <br>
+    {% endfor %}
+    <form action="http://127.0.0.1:8000/polls/change_autor" method="POST">
+        {% csrf_token %}
+        <label for="name">Autor id</label>
+        <input type="text" name="name" id="name" placeholder="Autor id"><br>
+
+        <label for="nname">New autor name</label>
+        <input type="text" name="nname" id="nname" placeholder="New name"><br>
+
+        <label for="st">Statement id</label>
+        <input type="text" name="st" id="st" placeholder="New statement ID"><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="http://127.0.0.1:8000/polls/statement"><button>Statement</button></a>
+</body>
+</html>

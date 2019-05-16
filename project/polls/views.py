@@ -83,3 +83,21 @@ def add_autor(request):
     statements = Statement.objects.all()
     autors = Autor.objects.all()
     return render(request, 'polls/add_autor_to_statement.html', {'statements': statements, 'autors': autors})
+
+
+def change_autors(request):
+    statements = Statement.objects.all()
+    autors = Autor.objects.all()
+    return render(request, 'polls/change_autor.html', {'statements': statements, 'autors': autors})
+
+def change_autor(request):
+    name = request.POST.get('name')
+    st = request.POST.get('st')
+    nname = request.POST.get('nname')
+    autor = Autor.objects.get(id=name)
+    autor.name = nname
+    autor.statement = Statement.objects.get(id=int(st))
+    autor.save()
+    statements = Statement.objects.all()
+    autors = Autor.objects.all()
+    return render(request, 'polls/change_autor.html', {'statements': statements, 'autors': autors})
